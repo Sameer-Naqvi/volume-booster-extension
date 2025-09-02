@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Volume Booster",
+    "version": "1.0",
+    "description": "Boost volume on web pages",
+    "permissions": ["activeTab", "scripting", "storage"],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"],
+            "all_frames": true,
+            "run_at": "document_end"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["content.js"],
+            "matches": ["<all_urls>"]
+        }
+    ]
+}
